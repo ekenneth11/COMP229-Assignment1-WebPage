@@ -13,5 +13,5 @@ function Home(){
         </>
     )
 }
-
+{/**https://www.seanhalpin.xyz/about */}
 export default Home;

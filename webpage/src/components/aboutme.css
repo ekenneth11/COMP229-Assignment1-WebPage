@@ -11,6 +11,7 @@
     border-radius: 50% 50% 0 0;
     overflow: hidden;
     margin-left: 100px;
+    border-color: white;
 }
 .aboutMe-content{
     display: flex;
