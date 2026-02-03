@@ -1,14 +1,9 @@
-.welcome{
+.homepage{
     justify-content: center;
     text-align: center;
-    margin-top: 15%;
+    font-size: 40px;
 }
-.nav-links{
-    justify-content: center;
-    text-align: center;
-    display: flex;
-}
-.image-logo{
-    width: 200px;
-    height: 200px;
+p{
+    margin: 20px 20px ;
+    font-size: 20px;
 }

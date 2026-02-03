@@ -1,7 +1,23 @@
-body{
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(to bottom, white 80%, gray 100%);
-  
-  background-attachment: fixed;
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; 
+    background: linear-gradient(-45deg, #6A89A7, #BDDDFC, #88BDF2, #384959);
+    background-size: 400% 400%;
+    
+    animation: gradientAnimation 15s ease infinite;
+    font-family: 'Metana', sans-serif;
+}
+
+
+@font-face {
+  font-family: 'Metana';
+  src: url('./assets/fonts/NeueMetanaNext-SemiBold.otf') format('opentype');
+  font-weight: 600;      
+  font-style: normal;
+}
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

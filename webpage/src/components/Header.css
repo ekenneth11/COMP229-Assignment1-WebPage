@@ -9,26 +9,55 @@
     gap: 20px;
 }
 .mainLogo{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 30%;
     object-fit: cover;
     z-index: 10;
 }
 
 .nav-links{
+    font-family: 'Metana', sans-serif;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 30px
+    gap: 2vw;
+    flex-wrap: nowrap;
+    
 }
-.nav-icon {
-  /* 6. Icon Sizing */
-  width: 80px; 
-  height: 80px;
-  object-fit: contain;
-  transition: transform 0.2s;
-  cursor: pointer;
+.nav-links a{
+    padding: 12px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    color: #4b0082 !important;
+    background-color: transparent;
+}
+.nav-links a:visited {
+    color: #4b0082 !important;
+}
+.nav-links a.active{
+    background-color: #384959; 
+    
+    backdrop-filter: blur(100px);
 
+    color: #bdddfc !important; 
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .nav-links a {
+        font-size: 0.9rem; /* Smaller text on tablets/phones */
+    }
+    
+    .nav-links {
+        gap: 15px; /* Tighter spacing */
+    }
 }
