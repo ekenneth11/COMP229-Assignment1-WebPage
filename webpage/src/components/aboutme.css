@@ -1,0 +1,42 @@
+
+.title {
+    margin-top: 0;
+    text-align: center;
+    align-items: center;
+    font-size: 100px;
+}
+.meImage{
+    width: 400px;
+    height: 400px;
+    border-radius: 50% 50% 0 0;
+    overflow: hidden;
+    margin-left: 100px;
+}
+.aboutMe-content{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.description{
+    display: flex !important;
+    flex-direction: column !important;
+
+    text-align: justify;
+    align-items: flex-start;
+}
+.download-button{
+    margin-left: 40%;
+    display: inline-block;
+    background-color: #384959; 
+    text-decoration: none;
+    backdrop-filter: blur(100px);
+    color: #bdddfc !important; 
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+.download-button:hover{
+    transform: translateY(-5px);
+}
