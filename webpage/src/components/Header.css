@@ -54,10 +54,11 @@
 
 @media (max-width: 768px) {
     .nav-links a {
-        font-size: 0.9rem; /* Smaller text on tablets/phones */
+        font-size: 0.9rem;
     }
     
     .nav-links {
-        gap: 15px; /* Tighter spacing */
+        font-size: 20px;
+        gap: 15px;
     }
 }

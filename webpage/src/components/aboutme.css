@@ -6,17 +6,17 @@
     font-size: 100px;
 }
 .meImage{
-    width: 1500px;
-    height: 500px;
     border-radius: 50% 50% 0 0;
     overflow: hidden;
     margin-left: 100px;
-    border-color: white;
 }
 .aboutMe-content{
     display: flex;
-    text-align: center;
+    justify-content: center;
     align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
 }
 .description{
     display: flex !important;
