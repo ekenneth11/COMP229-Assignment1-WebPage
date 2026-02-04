@@ -1,0 +1,68 @@
+/*   margin-left: 5%;
+    max-width: 1000px;
+}
+.contact-header h1{
+    font-size: 50px;
+}
+.contact-header h3{
+    font-size: 20px;
+}
+.textDiv{
+    display: flex;
+    flex-direction: column;
+}
+.textBox{
+    width: 450px;
+    height: 20px;
+    border-radius: 20px;
+    box-shadow: gray;
+    background-color: #384959;
+    color: #BDDDFC;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.contactForm{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+.messageBox{
+    width: 450px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: gray;
+    background-color: #384959;
+    color: #BDDDFC;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 100px;
+}
+.submitButton{
+    padding: 20px;
+    width: 200px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #88BDF2;
+    font-family: 'Metana';
+}
+
+.rowContent{
+    display: flex;
+    gap: 20px;
+}
+*/
+
+.contact-container{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.contact-image{
+    height: 400px;
+    width: 400px;
+}
