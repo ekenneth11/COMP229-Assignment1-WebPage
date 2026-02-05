@@ -40,18 +40,26 @@ function Contact() {
                 </div>
 
             </div>*/}
+            <div className="contact-description">
+                <h1>How Can We Help?</h1>
+                <p>Contact us to find out how we can help you to bring your ideas to life!</p>
+            </div>
             <div className="contact-container">
-                <div className="contact-description">
-                    <h1>How Can We Help?</h1>
-                    <p>Contact us to find out how we can help you to bring your ideas to life!</p>
-                </div>
                 <div className="contact-image">
-                    <img src={contact} alt="Contact Image" />
+                    <img src={contact} alt="Contact Image" className="img1"/>
+                    Email: adasdasdsa
+                    
                 </div>
+                <form onSubmit={handleSubmit} className="details">
+                    <input type='text' name='firstName' placeholder="First Name" className="input" />
+                    <input type='text' name='LastName' placeholder="Last Name" className="input" />
+                    <input type='text' name='email' placeholder="What's your email?" className="input" />
+                    <input type='text' name='contact' placeholder="Contact Number" className="input" />
+                    <textarea name='message' rows='5' placeholder="Your questions..." className="input" />
+                    <button type="submit" className="form-button">Submit</button>
+                </form>
             </div>
-            <div className="contact-fomrs">
-                asdasdsa
-            </div>
+
 
         </>
     )

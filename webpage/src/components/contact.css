@@ -60,9 +60,43 @@
     text-align: center;
     align-items: center;
     display: flex;
-    flex-direction: column;
+    gap: 40px;
 }
-.contact-image{
+.img1{
     height: 400px;
     width: 400px;
+}
+.contact-image{
+    border-style: dashed;
+}
+.contact-description{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+
+}
+.contact-forms{
+    flex-direction: column;
+}
+.input{
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    background-color: #BDDDFC;
+}
+.details{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form-button{
+    font-family: 'Metana';
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #384959;
+    font-size: 15px;
 }
