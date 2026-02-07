@@ -19,7 +19,7 @@ function Contact() {
             <div className="contact-container">
                 <div className="contact-image">
                     <img src={contact} alt="Contact Image" className="img1"/>
-                    Email: kennethbautista1512@gmail.com Hello <br></br>Phone: (647) 787-6431
+                    Email: kennethbautista1512@gmail.com <br></br>Phone: (647) 787-6431
                 </div>
                 <form onSubmit={handleSubmit} className="details">
                     <input type='text' name='firstName' placeholder="First Name" className="input" />
