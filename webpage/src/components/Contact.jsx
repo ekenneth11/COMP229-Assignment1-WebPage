@@ -1,6 +1,6 @@
 import Header from "./Header";
 import contact from '../assets/contact.png'
-import '../assets/contact.css'
+import '../cssFiles/contact.css'
 function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();

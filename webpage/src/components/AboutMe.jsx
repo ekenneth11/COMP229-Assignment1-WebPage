@@ -1,6 +1,6 @@
 import Header from "./Header";
 import me from '../assets/me.jpg'
-import '../assets/aboutme.css'
+import '../cssFiles/aboutme.css'
 import resume from '../assets/KennethBautistaResume.pdf'
 function AboutMe(){
     return(
