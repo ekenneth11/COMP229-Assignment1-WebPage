@@ -5,7 +5,6 @@ import resume from '../assets/KennethBautistaResume.pdf'
 function AboutMe(){
     return(
         <>
-            <Header />
             <h1 className="title">I'm Kenneth.</h1>
             <div className="aboutMe-content">
                 <div>

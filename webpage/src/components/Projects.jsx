@@ -24,7 +24,6 @@ const data = [
 function Projects(){
     return(
         <>
-        <Header/>
         <h1 className="title">Projects</h1>
         <div className="projects">
             {

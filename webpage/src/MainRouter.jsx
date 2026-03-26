@@ -4,9 +4,11 @@ import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import Header from "./components/Header";
 function MainRouter(){
     return(
         <>
+            <Header/>
             <Routes>
                 <Route exact path="/" element={<Home/>} />
                 <Route exact path="/about" element={<AboutMe/>}/>

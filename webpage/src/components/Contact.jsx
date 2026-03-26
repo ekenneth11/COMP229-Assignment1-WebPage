@@ -10,7 +10,6 @@ function Contact() {
     }
     return (
         <>
-            <Header />
             
             <div className="contact-description">
                 <h1>How Can We Help?</h1>
