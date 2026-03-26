@@ -29,15 +29,44 @@ function Header(){
                                 </li>
                             </ul>
                         </li>
-                        <li className='nav-item'>
-                            <NavLink to="/services" className = "nav-link">Services</NavLink>
+                        <li className='nav-item dropdown'>
+                            <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">
+                                Services
+                            </Link>
+                            <ul className = "dropdown-menu">
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Service List </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Add a new Service </NavLink>
+                                </li>
+                            </ul>
                         </li>
-                        <li className='nav-item'>
-                            <NavLink to="/contacts" className = "nav-link">Contact Me</NavLink>
+                        <li className='nav-item dropdown'>
+                            <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">
+                                Contact
+                            </Link>
+                            <ul className = "dropdown-menu">
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Contact List </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Add a new Contact </NavLink>
+                                </li>
+                            </ul>
                         </li>
-                        <li className='nav-item'>
-                            <NavLink to='/' className='nav-link'>Users</NavLink>
-
+                        <li className='nav-item dropdown'>
+                            <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">
+                                User
+                            </Link>
+                            <ul className = "dropdown-menu">
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Users List </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Add a new User </NavLink>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
