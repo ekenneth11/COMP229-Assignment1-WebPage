@@ -1,6 +1,6 @@
 import logo from '../assets/kennethLogo.png'
 import { NavLink } from 'react-router-dom';
-import './Header.css'
+import '../assets/Header.css'
 
 function Header(){
     return(

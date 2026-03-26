@@ -2,7 +2,7 @@ import Header from "./Header";
 import photo1 from '../assets/air-tier.png'
 import photo2 from '../assets/webpage.png'
 import photo3 from '../assets/resumatch.png'
-import './projects.css'
+import '../assets/projects.css'
 import RowComponent from "./RowComponent";
 const data = [
     {

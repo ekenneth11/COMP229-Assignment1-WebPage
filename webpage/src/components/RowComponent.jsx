@@ -1,4 +1,4 @@
-import './rowComponent.css'
+
 function RowComponent({item}){
     return(
     <>
