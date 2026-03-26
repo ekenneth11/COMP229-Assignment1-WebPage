@@ -25,3 +25,15 @@ img {
   max-width: 100%; 
   height: auto;   
 }
+
+
+.nav-link {
+  text-decoration: none !important;
+}
+.nav-pills .nav-link.active{
+  background-color: #384959;
+  text-decoration: none !important;
+}
+.nav-link:hover {
+  text-decoration: none !important;
+}

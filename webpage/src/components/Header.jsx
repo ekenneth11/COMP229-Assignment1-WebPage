@@ -1,21 +1,48 @@
 import logo from '../assets/kennethLogo.png'
-import { NavLink } from 'react-router-dom';
-import '../cssFiles/Header.css'
+import { Link, NavLink } from 'react-router-dom';
 
 function Header(){
     return(
         <>  
-        
-            {/* <div className="header">
-                <img src={logo} alt="Kenneth's Logo" className='mainLogo'/>
-                <nav className='nav-links'>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About Me</NavLink>
-                    <NavLink to="/projects">Projects</NavLink>
-                    <NavLink to="/services">Services</NavLink>
-                    <NavLink to="/contacts">Contact Me</NavLink>
-                </nav>
-            </div> */}
+            <nav className = "navbar m-4">
+                <div className="container-fluid d-flex justify-content-center align-items-center">
+                    <NavLink className='navbar-brand me-4' to='/'>
+                        <img src={logo} alt="logo" style={{ width: 150}}/>
+                    </NavLink>
+                    <ul className="nav nav-pills d-flex flex-row">
+                        <li className="nav-item">
+                            <NavLink to="/" className = "nav-link ">Home</NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to="/about" className = "nav-link">About Me</NavLink>
+                        </li>
+                        <li className='nav-item dropdown'>
+                            <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">
+                                Project
+                            </Link>
+                            <ul className = "dropdown-menu">
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Project List </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className='dropdown-item' to='/'>Add a new Project </NavLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to="/services" className = "nav-link">Services</NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to="/contacts" className = "nav-link">Contact Me</NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to='/' className='nav-link'>Users</NavLink>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
         </>
     )
 }
