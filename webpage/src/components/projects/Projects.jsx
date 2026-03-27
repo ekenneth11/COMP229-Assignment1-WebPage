@@ -30,7 +30,7 @@ function Projects(){
     const [showModal, setShowModal] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
     const [projectList, setProjectList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
 
     // Fetch projects from the API when the component mounts
     const loadProjects = () => {
@@ -38,7 +38,7 @@ function Projects(){
             .then((res) => {
                 if (res.success) {
                     setProjectList(res.data);
-                    setIsLoading(false);
+                    // setIsLoading(false);
                 }
             })
             .catch((err) => {

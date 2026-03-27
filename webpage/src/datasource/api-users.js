@@ -53,7 +53,7 @@ const update = async (item, id) =>{
 }
 
 //removing a document from the database
-const remove = async (item, id) => {
+const remove = async (id) => {
     try{
         let response = await fetch(apiURL + endpoint + id, {
             method: 'DELETE',
@@ -83,3 +83,5 @@ const getOne = async (item, id) => {
         console.log(error);
     }
 }
+
+export { list, create, update, remove, getOne };

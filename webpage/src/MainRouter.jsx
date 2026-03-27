@@ -5,6 +5,7 @@ import Projects from "./components/projects/Projects";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
+import Users from "./components/users/Users";
 function MainRouter(){
     return(
         <>
@@ -15,6 +16,7 @@ function MainRouter(){
                 <Route exact path="/projects" element={<Projects/>}/>
                 <Route exact path="/services" element={<Services/>}/>
                 <Route exact path="/contacts" element={<Contact/>}/>
+                <Route exact path="/users" element={<Users/>}/>
             </Routes>
         </>
     )

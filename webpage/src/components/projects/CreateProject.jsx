@@ -54,7 +54,7 @@ function CreateProject({show, onHide, onSaved, project: incomingProject}){
                 show={show}
                 onHide={handleCancel}
                 project={project}
-                title="Add New Project"
+                title="Project"
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
             />
