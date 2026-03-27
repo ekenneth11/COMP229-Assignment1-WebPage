@@ -16,7 +16,19 @@ function Header(){
                         <li className='nav-item'>
                             <NavLink to="/about" className = "nav-link">About Me</NavLink>
                         </li>
-                        <li className='nav-item dropdown'>
+                        <li className ='nav-item'>
+                            <NavLink to ='/projects' className='nav-link'>Projects</NavLink>
+                        </li>
+                        <li className ='nav-item'>
+                            <NavLink to ='/services' className='nav-link'>Services</NavLink>
+                        </li>
+                        <li className ='nav-item'>
+                            <NavLink to ='/contacts' className='nav-link'>Contact</NavLink>
+                        </li>
+                        <li className ='nav-item'>
+                            <NavLink to ='/users' className='nav-link'>Users</NavLink>
+                        </li>
+                        {/* <li className='nav-item dropdown'>
                             <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">
                                 Project
                             </Link>
@@ -28,8 +40,8 @@ function Header(){
                                     <NavLink className='dropdown-item' to='/'>Add a new Project </NavLink>
                                 </li>
                             </ul>
-                        </li>
-                        <li className='nav-item dropdown'>
+                        </li> */}
+                        {/* <li className='nav-item dropdown'>
                             <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">
                                 Services
                             </Link>
@@ -67,7 +79,7 @@ function Header(){
                                     <NavLink className='dropdown-item' to='/'>Add a new User </NavLink>
                                 </li>
                             </ul>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </nav>

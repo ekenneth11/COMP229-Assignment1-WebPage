@@ -1,5 +1,6 @@
 class ProjectModel{
-    constructor(title, description, completion){
+    constructor(id, title, description, completion){
+        this.id = id;
         this.title = title;
         this.description = description;
         this.completion = completion;
