@@ -1,12 +1,21 @@
 import ProjectModel from "../../datasource/projectModel";
 import ProjectForm from "./ProjectForm";
-import { useState } from "react";
-import { create } from "../../datasource/api-projects"
+import { useState, useEffect } from "react";
+import { create, update } from "../../datasource/api-projects"
 // import { useNavigate } from "react-router-dom";
-function CreateProject({show, onHide}){
+function CreateProject({show, onHide, onSaved, project: incomingProject}){
     // const navigate = useNavigate();
     const [project, setProject] = useState(new ProjectModel());
     const [errorMsg, setErrorMsg] = useState('');
+
+    useEffect(() => {
+        // when incoming project changes (edit or add), set local state
+        if (incomingProject) {
+            setProject({ ...incomingProject });
+        } else {
+            setProject(new ProjectModel());
+        }
+    }, [incomingProject, show]);
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -17,30 +26,38 @@ function CreateProject({show, onHide}){
         event.preventDefault();
         console.log("Submitting:" + project);
 
-        create(project)
+        const doCreateOrUpdate = project.id ? update(project, project.id) : create(project);
+        doCreateOrUpdate
             .then((res) =>{
-                if(res.success) {
-                    alert(res.message + " - id: " + res.data.id);
+                if(res && res.success) {
+                    alert(res.message + (res.data && res.data.id ? " - id: " + res.data.id : ""));
+                    setProject(new ProjectModel());
+                    if (onSaved) onSaved();
                 }
                 else{
-                    alert(res.message);
+                    alert(res ? res.message : 'Unknown response');
                 }
             })
             .catch((err) => {
                 alert(err.message);
                 console.log(err);
+                
             })
     }   
+    const handleCancel = () => {
+        setProject(new ProjectModel());
+        if (onHide) onHide();
+    }
     return (
         <>
-            <ProjectForm 
-            show={show} 
-            onHide={onHide} 
-            project={new ProjectModel()} 
-            title="Add New Project"
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-        />
+            <ProjectForm
+                show={show}
+                onHide={handleCancel}
+                project={project}
+                title="Add New Project"
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+            />
         </>
 
     )

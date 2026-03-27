@@ -1,5 +1,5 @@
 
-function ProjectForm({ show, onHide, project, title, handleSubmit, handleChange}){
+function ProjectForm({ show, onHide, project, title, handleSubmit, handleChange }) {
     if (!show) return null;
 
     return (
@@ -11,10 +11,10 @@ function ProjectForm({ show, onHide, project, title, handleSubmit, handleChange}
                         <button type="button" className="btn-close" onClick={onHide}></button>
                     </div>
                     <div className="modal-body p-5 pt-0">
-                        <form className="form" onSubmit={handleSubmit}>
-                            <input type='hidden' name='id' value={project.id || ""}/>
+                        <form id="projectForm" className="form" onSubmit={handleSubmit}>
+                            <input type='hidden' name='id' value={project.id || ""} />
 
-                            {/* <div className = 'form-floating m-3'>
+                            <div className='form-floating m-3'>
                                 <input
                                     id='titleTextField'
                                     name='title'
@@ -22,27 +22,38 @@ function ProjectForm({ show, onHide, project, title, handleSubmit, handleChange}
                                     placeholder="Title"
                                     value={project.title || ""}
                                     onChange={handleChange}
-                                    required 
-                                    type='text'
+                                    required
                                 />
                                 <label htmlFor="titleTextField">Title</label>
-                            </div> */}
-                            <div className="form-floating m-3">
-                                <input type='text' className="form-control rounded-3" id='floatingInput' 
-                                placeholder='Description' />
-                                <label htmlFor="floatingInput">Description</label>
                             </div>
                             <div className="form-floating m-3">
-                                <input type='date' className="form-control rounded-3" id='floatingInput' 
-                                placeholder='Completion Date' />
-                                <label htmlFor="floatingInput">Completion Date</label>
+                                <input
+                                    id='descriptionTextField'
+                                    name='description'
+                                    className="form-control rounded-3"
+                                    value={project.description || ""}
+                                    onChange={handleChange}
+                                    placeholder='Description'
+                                    required
+                                />
+                                <label htmlFor="descriptionTextField">Description</label>
+                            </div>
+                            <div className="form-floating m-3">
+                                <input
+                                    type='date'
+                                    className="form-control rounded-3"
+                                    id='completionTextField'
+                                    name='completion'
+                                    value={project.completion ? new Date(project.completion).toISOString().split('T')[0] : ""}
+                                    onChange={handleChange}
+                                    placeholder='Completion Date' />
+                                <label htmlFor="completionTextField">Completion Date</label>
                             </div>
                         </form>
-
                     </div>
                     <div className="modal-footer">
-                        <button className="btn btn-secondary" onClick={onHide}>Cancel</button>
-                        <button className="btn btn-primary" type='submit'>Save</button>
+                        <button type="button" className="btn btn-secondary" onClick={onHide}>Cancel</button>
+                        <button className="btn btn-primary" type='submit' form="projectForm">Save</button>
                     </div>
                 </div>
             </div>

@@ -22,10 +22,43 @@
 //     }
 // ]
 import CreateProject from "./CreateProject";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { list } from "../../datasource/api-projects";
+import ProjectCards from "./ProjectCards";
 
 function Projects(){
     const [showModal, setShowModal] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
+    const [projectList, setProjectList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Fetch projects from the API when the component mounts
+    const loadProjects = () => {
+        list()
+            .then((res) => {
+                if (res.success) {
+                    setProjectList(res.data);
+                    setIsLoading(false);
+                }
+            })
+            .catch((err) => {
+                alert(err.message);
+                console.log(err);
+            })
+    };
+    const handleRemove = () => {
+        loadProjects();
+    }
+    const handleEdit = (project) => {
+        setSelectedProject(project);
+        setShowModal(true);
+    }
+    
+    // Call loadProjects when the component mounts
+    useEffect(() => {
+        loadProjects();
+    }, []);
+
     return(
         <>
             <div className="d-flex align-items-center mb-3 justify-content-center">
@@ -35,11 +68,21 @@ function Projects(){
                 </button>
                 <CreateProject
                     show={showModal}
-                    onHide={() => setShowModal(false)}
+                    onHide={() => { setShowModal(false); setSelectedProject(null); }}
+                    onSaved={() => { setShowModal(false); setSelectedProject(null); loadProjects(); }}
+                    project={selectedProject}
                 />
             </div>
-            
-
+                <div className="container-fluid px-3">
+                    <div className="row g-2 justify-content-center">
+                        {projectList.map((project) => (
+                            <div className="col-12 col-md-4 d-flex justify-content-center" key={project.id}>
+                                <ProjectCards project={project} onRemove={handleRemove} onEdit={handleEdit} />
+                            </div>
+                            
+                        ))}
+                    </div>
+                </div>
             {/* <div className="d-flex align-items-center mb-3 justify-content-center">
                 <h1 className="title me-3">Projects</h1>
 
