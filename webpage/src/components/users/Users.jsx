@@ -13,6 +13,7 @@ function Users(){
     const loadUsers = () =>{
         list()
             .then((res) => {
+                console.log("Users API response:", res);
                 if (res && res.success) {
                     setUserList(res.data);
                     // setIsLoading(false);

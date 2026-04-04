@@ -1,6 +1,6 @@
 
 import UserModel from "../../datasource/userModel";
-import UserFom from "./UserForm";
+import UserForm from "./UserForm";
 import { useState, useEffect, use } from "react";
 import {create, update} from "../../datasource/api-users"
 function CreateUser({show, onHide, onSaved, user: incomingUser}){ 
