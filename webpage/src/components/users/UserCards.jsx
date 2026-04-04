@@ -1,5 +1,6 @@
 
 import { remove } from "../../datasource/api-users";
+import "../../cssFiles/users-cards.css";
 
 function UserCards({ user, onRemove, onEdit }) {
     const handleRemove = (id) => {
@@ -20,13 +21,17 @@ function UserCards({ user, onRemove, onEdit }) {
     };
 
     return (
-        <div className="card user-card h-100 w-100 bg-light border-1 ">
+        <div className="card users-grid-card h-100 w-100">
             <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{user.name}</h5>
-                <h6 className="card-subtitle mb-2">{user.email}</h6>
-                <p className="card-text">{user.role}</p>
-                <div className="mt-auto d-flex justify-content-between align-items-center mt-3">
-                    <button 
+                <h5 className="card-title users-card-name">
+                    {`${user.firstName || ""} ${user.lastName || ""}`.trim() || user.name || "Unnamed User"}
+                </h5>
+                <p className="users-card-detail">
+                    <span className="users-card-detail-label">Email:</span>
+                    {user.email || "Not provided"}
+                </p>
+                <div className="users-actions mt-auto d-flex justify-content-between align-items-center">
+                    <button
                         className="btn btn-secondary me-3"
                         onClick={() => onEdit && onEdit(user)}>
                         Edit

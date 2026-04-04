@@ -22,11 +22,14 @@ function Header(){
                         <li className ='nav-item'>
                             <NavLink to ='/services' className='nav-link'>Services</NavLink>
                         </li>
-                        <li className ='nav-item'>
+                        {/* <li className ='nav-item'>
                             <NavLink to ='/contacts' className='nav-link'>Contact</NavLink>
-                        </li>
+                        </li> */}
                         <li className ='nav-item'>
                             <NavLink to ='/users' className='nav-link'>Users</NavLink>
+                        </li>
+                        <li className ='nav-item'>
+                            <NavLink to ='/references' className='nav-link'>References</NavLink>
                         </li>
                         {/* <li className='nav-item dropdown'>
                             <Link className='nav-link dropdown-toggle' to="#" role="button" data-bs-toggle="dropdown">

@@ -15,6 +15,7 @@ const list = async() => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -32,6 +33,7 @@ const create = async (item) => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -49,6 +51,7 @@ const update = async (item, id) =>{
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -65,6 +68,7 @@ const remove = async (id) => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -81,6 +85,7 @@ const getOne = async (item, id) => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 

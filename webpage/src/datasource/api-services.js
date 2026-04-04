@@ -15,6 +15,7 @@ const list = async() => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -32,6 +33,7 @@ const create = async (item) => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -49,11 +51,12 @@ const update = async (item, id) =>{
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
 //removing a document from the database
-const remove = async (item, id) => {
+const remove = async (id) => {
     try{
         let response = await fetch(apiURL + endpoint + id, {
             method: 'DELETE',
@@ -65,6 +68,7 @@ const remove = async (item, id) => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
 
@@ -81,5 +85,8 @@ const getOne = async (item, id) => {
         return await response.json();
     }catch(error){
         console.log(error);
+        return { success: false, message: error.message || 'Request failed' };
     }
 }
+
+export { list, create, update, remove, getOne };

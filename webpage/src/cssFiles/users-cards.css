@@ -1,0 +1,52 @@
+.users-grid-card {
+    width: 100%;
+    max-width: 620px;
+    min-height: 180px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.users-grid-card:hover,
+.users-grid-card:focus-within {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
+}
+
+.users-grid-card .card-body {
+    width: 100%;
+    text-align: left;
+    gap: 8px;
+}
+
+.users-card-name {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.users-card-detail {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: #1f252b;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.users-card-detail-label {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.users-actions {
+    margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+    .users-grid-card {
+        max-width: 100%;
+    }
+}

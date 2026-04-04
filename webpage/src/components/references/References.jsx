@@ -21,23 +21,24 @@
 //         text: 'An intelligent resume analysis tool designed to bridge the gap between candidates and recruiters. Built using Object-Oriented Programming (OOP), it parses text to match candidate skills against job requirements, streamlining the hiring process.'
 //     }
 // ]
-import CreateProject from "./CreateProject";
+import CreateReference from "./CreateReference";
 import { useState, useEffect } from "react";
-import { list } from "../../datasource/api-projects";
-import ProjectCards from "./ProjectCards";
+import { list } from "../../datasource/api-references";
+import ReferenceCards from "./ReferenceCards";
+import "../../cssFiles/references.css";
 
-function Projects(){
+function References(){
     const [showModal, setShowModal] = useState(false);
-    const [selectedProject, setSelectedProject] = useState(null);
-    const [projectList, setProjectList] = useState([]);
+    const [selectedReference, setSelectedReference] = useState(null);
+    const [referenceList, setReferenceList] = useState([]);
     // const [isLoading, setIsLoading] = useState(true);
 
-    // Fetch projects from the API when the component mounts
-    const loadProjects = () => {
+    // Fetch references from the API when the component mounts
+    const loadReferences = () => {
         list()
             .then((res) => {
                 if (res && res.success) {
-                    setProjectList(res.data);
+                    setReferenceList(res.data);
                     // setIsLoading(false);
                 }
             })
@@ -47,63 +48,44 @@ function Projects(){
             })
     };
     const handleRemove = () => {
-        loadProjects();
-    }
-    const handleEdit = (project) => {
-        setSelectedProject(project);
+        loadReferences();
+    };
+    const handleEdit = (reference) => {
+        setSelectedReference(reference);
         setShowModal(true);
-    }
+    };
     
-    // Call loadProjects when the component mounts
+    // Call loadReferences when the component mounts
     useEffect(() => {
-        loadProjects();
+        loadReferences();
     }, []);
 
     return(
         <>
             <div className="d-flex align-items-center mb-3 justify-content-center">
-                <h1 className="title me-3">Projects</h1>
-                <button class="btn" type="button" onClick={() => setShowModal(true)}>
-                    <i class="bi bi-plus-circle fs-1"></i>
+                <h1 className="title me-3">References</h1>
+                <button className="btn" type="button" onClick={() => setShowModal(true)}>
+                    <i className="bi bi-plus-circle fs-1"></i>
                 </button>
-                <CreateProject
+                <CreateReference
                     show={showModal}
-                    onHide={() => { setShowModal(false); setSelectedProject(null); }}
-                    onSaved={() => { setShowModal(false); setSelectedProject(null); loadProjects(); }}
-                    project={selectedProject}
+                    onHide={() => { setShowModal(false); setSelectedReference(null); }}
+                    onSaved={() => { setShowModal(false); setSelectedReference(null); loadReferences(); }}
+                    reference={selectedReference}
                 />
             </div>
                 <div className="container-fluid px-3">
                     <div className="row g-2 justify-content-center">
-                        {projectList.map((project) => (
-                            <div className="col-12 col-md-4 d-flex justify-content-center" key={project.id}>
-                                <ProjectCards project={project} onRemove={handleRemove} onEdit={handleEdit} />
+                        {referenceList.map((reference, index) => (
+                            <div className="col-12 col-md-4 d-flex justify-content-center" key={reference.id || reference._id || reference.email || index}>
+                                <ReferenceCards reference={reference} onRemove={handleRemove} onEdit={handleEdit} />
                             </div>
                             
                         ))}
                     </div>
                 </div>
-            {/* <div className="d-flex align-items-center mb-3 justify-content-center">
-                <h1 className="title me-3">Projects</h1>
-
-                <button class="btn" type="button" onClick={handleAdd}>
-                    <i class="bi bi-plus-circle fs-1"></i>
-                </button>
-            </div>
-            <CreateProject 
-                show={showForm}
-                onHide = {() => setShowForm(false)}
-                project={selectedProject}
-            /> */}
-        {/* <div className="projects">
-            {
-                data.map((rowItem, index)=>(
-                    <RowComponent key={index} item={rowItem}/>
-                ))
-            }
-        </div> */}
         </>
     )
 }
 
-export default Projects;
+export default References;

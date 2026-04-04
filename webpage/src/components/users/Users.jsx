@@ -13,7 +13,7 @@ function Users(){
     const loadUsers = () =>{
         list()
             .then((res) => {
-                if (res.success) {
+                if (res && res.success) {
                     setUserList(res.data);
                     // setIsLoading(false);
                 }

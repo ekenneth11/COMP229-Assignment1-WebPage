@@ -1,0 +1,61 @@
+.references-grid-card {
+    width: 100%;
+    max-width: 620px;
+    min-height: 230px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.references-grid-card .card-body {
+    width: 100%;
+    text-align: left;
+    gap: 8px;
+}
+
+.references-name {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.references-role {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #2a2f35;
+}
+
+.references-detail {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: #1f252b;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.references-detail-label {
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.references-actions {
+    margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+    .references-grid-card {
+        max-width: 100%;
+        min-height: 200px;
+    }
+
+    .references-name {
+        font-size: 1.35rem;
+    }
+
+    .references-role {
+        font-size: 1.05rem;
+    }
+}

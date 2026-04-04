@@ -1,5 +1,6 @@
 
 import { remove } from "../../datasource/api-projects";
+import "../../cssFiles/projects-cards.css";
 
 function ProjectCards({ project, onRemove, onEdit }) {
     const handleRemove = (id) => {
@@ -20,13 +21,15 @@ function ProjectCards({ project, onRemove, onEdit }) {
     };
 
     return (
-        <div className="card project-card h-100 w-100 bg-aqua border-1 ">
+        <div className="card projects-grid-card h-100 w-100">
             <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{project.title}</h5>
-                <h6 className="card-subtitle mb-2">{project.completion ? new Date(project.completion).toLocaleDateString() : ''}</h6>
-                <p className="card-text">{project.description}</p>
-                <div className="mt-auto d-flex justify-content-between align-items-center mt-3">
-                    <button 
+                <h5 className="card-title projects-card-title">{project.title || "Untitled Project"}</h5>
+                <h6 className="projects-card-date">
+                    {project.completion ? new Date(project.completion).toLocaleDateString() : "No completion date"}
+                </h6>
+                <p className="projects-card-description">{project.description || "No description provided"}</p>
+                <div className="projects-actions mt-auto d-flex justify-content-between align-items-center">
+                    <button
                         className="btn btn-secondary me-3"
                         onClick={() => onEdit && onEdit(project)}>
                         Edit
