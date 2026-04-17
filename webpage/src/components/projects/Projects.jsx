@@ -22,14 +22,16 @@
 //     }
 // ]
 import CreateProject from "./CreateProject";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { list } from "../../datasource/api-projects";
+import { getCurrentUserIdentity } from "../auth/auth-helper";
 import ProjectCards from "./ProjectCards";
 
 function Projects(){
     const [showModal, setShowModal] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
     const [projectList, setProjectList] = useState([]);
+    const currentUser = useMemo(() => getCurrentUserIdentity(), []);
     // const [isLoading, setIsLoading] = useState(true);
 
     // Fetch projects from the API when the component mounts
@@ -77,9 +79,13 @@ function Projects(){
                     <div className="row g-2 justify-content-center">
                         {projectList.map((project) => (
                             <div className="col-12 col-md-4 d-flex justify-content-center" key={project.id}>
-                                <ProjectCards project={project} onRemove={handleRemove} onEdit={handleEdit} />
+                                <ProjectCards
+                                    project={project}
+                                    currentUser={currentUser}
+                                    onRemove={handleRemove}
+                                    onEdit={handleEdit}
+                                />
                             </div>
-                            
                         ))}
                     </div>
                 </div>

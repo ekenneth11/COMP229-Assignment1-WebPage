@@ -2,6 +2,7 @@ import ProjectModel from "../../datasource/projectModel";
 import ProjectForm from "./ProjectForm";
 import { useState, useEffect } from "react";
 import { create, update } from "../../datasource/api-projects"
+import { getCurrentUserIdentity } from "../auth/auth-helper";
 // import { useNavigate } from "react-router-dom";
 function CreateProject({show, onHide, onSaved, project: incomingProject}){
     // const navigate = useNavigate();
@@ -26,7 +27,15 @@ function CreateProject({show, onHide, onSaved, project: incomingProject}){
         event.preventDefault();
         console.log("Submitting:" + project);
 
-        const doCreateOrUpdate = project.id ? update(project, project.id) : create(project);
+        const currentUser = getCurrentUserIdentity();
+        const payload = project.id
+            ? project
+            : {
+                ...project,
+                createdBy: project.createdBy || currentUser.username || currentUser.email || currentUser.uid || currentUser.userId || ""
+            };
+
+        const doCreateOrUpdate = project.id ? update(payload, project.id) : create(payload);
         doCreateOrUpdate
             .then((res) =>{
                 if(res && res.success) {

@@ -2,8 +2,40 @@
 import { remove } from "../../datasource/api-projects";
 import "../../cssFiles/projects-cards.css";
 
-function ProjectCards({ project, onRemove, onEdit }) {
+function ProjectCards({ project, currentUser, onRemove, onEdit }) {
+    const ownerKeyCandidates = [
+        "createdBy",
+        "createdByUsername",
+        "creator",
+        "author",
+        "owner",
+        "ownerUsername",
+        "username",
+        "userName",
+        "addedBy",
+        "userId",
+        "ownerId",
+        "createdById",
+        "uid",
+        "email"
+    ];
+
+    const projectOwner = ownerKeyCandidates
+        .map((key) => project?.[key])
+        .find((value) => value !== undefined && value !== null && String(value).trim() !== "");
+
+    const isOwner = Boolean(
+        projectOwner &&
+        currentUser?.ownerCandidates?.includes(String(projectOwner).toLowerCase())
+    );
+
+    const actionDisabled = !isOwner;
+
     const handleRemove = (id) => {
+        if (actionDisabled) {
+            return;
+        }
+
         if (window.confirm("Are you sure you want to delete this project?")) {
             remove(id)
                 .then((res) => {
@@ -31,11 +63,15 @@ function ProjectCards({ project, onRemove, onEdit }) {
                 <div className="projects-actions mt-auto d-flex justify-content-between align-items-center">
                     <button
                         className="btn btn-secondary me-3"
-                        onClick={() => onEdit && onEdit(project)}>
+                        disabled={actionDisabled}
+                        title={actionDisabled ? "Only the user who added this project can edit it." : "Edit project"}
+                        onClick={() => !actionDisabled && onEdit && onEdit(project)}>
                         Edit
                     </button>
                     <button
                         className="btn btn-danger"
+                        disabled={actionDisabled}
+                        title={actionDisabled ? "Only the user who added this project can delete it." : "Delete project"}
                         onClick={() => handleRemove(project.id)}>
                         Delete
                     </button>
