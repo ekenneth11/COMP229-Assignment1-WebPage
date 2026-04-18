@@ -1,0 +1,56 @@
+{
+    "title": "Singout",
+    "selectorAttribute": "data-signout",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1512,
+            "height": 1277,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:5173/projects",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:5173/projects",
+                    "title": "Kenneth Bautista"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "li:nth-of-type(7) > a"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/nav/div/ul/li[7]/a"
+                ],
+                [
+                    "pierce/li:nth-of-type(7) > a"
+                ],
+                [
+                    "aria/Sign-out (kensu)"
+                ],
+                [
+                    "text/Sign-out (kensu)"
+                ]
+            ],
+            "offsetY": 31,
+            "offsetX": 114.203125,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:5173/",
+                    "title": "Kenneth Bautista"
+                }
+            ]
+        }
+    ]
+}

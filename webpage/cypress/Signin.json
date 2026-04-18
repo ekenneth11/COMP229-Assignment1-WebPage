@@ -1,0 +1,161 @@
+{
+    "title": "Signin",
+    "selectorAttribute": "data-signin",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1512,
+            "height": 1277,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:5173/users/signin",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:5173/users/signin",
+                    "title": "Kenneth Bautista"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "form"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/div/form"
+                ],
+                [
+                    "pierce/form"
+                ],
+                [
+                    "text/EmailPasswordSubmit "
+                ]
+            ],
+            "offsetY": 70,
+            "offsetX": 335
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#emailTextField"
+                ],
+                [
+                    "xpath///*[@id=\"emailTextField\"]"
+                ],
+                [
+                    "pierce/#emailTextField"
+                ],
+                [
+                    "aria/Email"
+                ]
+            ],
+            "offsetY": 18,
+            "offsetX": 346
+        },
+        {
+            "type": "change",
+            "value": "kenneth2@",
+            "selectors": [
+                [
+                    "#emailTextField"
+                ],
+                [
+                    "xpath///*[@id=\"emailTextField\"]"
+                ],
+                [
+                    "pierce/#emailTextField"
+                ],
+                [
+                    "aria/Email"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyUp",
+            "key": "2",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "kenneth2@gmail.com",
+            "selectors": [
+                [
+                    "#emailTextField"
+                ],
+                [
+                    "xpath///*[@id=\"emailTextField\"]"
+                ],
+                [
+                    "pierce/#emailTextField"
+                ],
+                [
+                    "aria/Email"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "12345678",
+            "selectors": [
+                [
+                    "#passowordTextField"
+                ],
+                [
+                    "xpath///*[@id=\"passowordTextField\"]"
+                ],
+                [
+                    "pierce/#passowordTextField"
+                ],
+                [
+                    "aria/Password"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/div/form/button"
+                ],
+                [
+                    "pierce/button"
+                ],
+                [
+                    "aria/Submit"
+                ],
+                [
+                    "text/Submit"
+                ]
+            ],
+            "offsetY": 23,
+            "offsetX": 43
+        }
+    ]
+}

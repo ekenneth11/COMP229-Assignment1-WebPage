@@ -1,0 +1,308 @@
+{
+    "title": "Sign up",
+    "selectorAttribute": "data-signup",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1512,
+            "height": 1277,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:5173/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:5173/",
+                    "title": "Kenneth Bautista"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "li:nth-of-type(7) > a"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/nav/div/ul/li[7]/a"
+                ],
+                [
+                    "pierce/li:nth-of-type(7) > a"
+                ],
+                [
+                    "aria/Signin"
+                ],
+                [
+                    "text/Signin"
+                ]
+            ],
+            "offsetY": 13,
+            "offsetX": 57.359375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#root > div a"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/div/form/a"
+                ],
+                [
+                    "pierce/#root > div a"
+                ],
+                [
+                    "aria/ Sign-up"
+                ],
+                [
+                    "text/Sign-up"
+                ]
+            ],
+            "offsetY": 6.5,
+            "offsetX": 51.0625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#firstNameTextField"
+                ],
+                [
+                    "xpath///*[@id=\"firstNameTextField\"]"
+                ],
+                [
+                    "pierce/#firstNameTextField"
+                ],
+                [
+                    "aria/First Name"
+                ]
+            ],
+            "offsetY": 15,
+            "offsetX": 187
+        },
+        {
+            "type": "change",
+            "value": "",
+            "selectors": [
+                [
+                    "#firstNameTextField"
+                ],
+                [
+                    "xpath///*[@id=\"firstNameTextField\"]"
+                ],
+                [
+                    "pierce/#firstNameTextField"
+                ],
+                [
+                    "aria/First Name"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Backspace"
+        },
+        {
+            "type": "keyUp",
+            "key": "Backspace",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Kenneth",
+            "selectors": [
+                [
+                    "#firstNameTextField"
+                ],
+                [
+                    "xpath///*[@id=\"firstNameTextField\"]"
+                ],
+                [
+                    "pierce/#firstNameTextField"
+                ],
+                [
+                    "aria/First Name"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Bautista",
+            "selectors": [
+                [
+                    "#lastNameTextField"
+                ],
+                [
+                    "xpath///*[@id=\"lastNameTextField\"]"
+                ],
+                [
+                    "pierce/#lastNameTextField"
+                ],
+                [
+                    "aria/lastName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "kensu",
+            "selectors": [
+                [
+                    "#usernameTextField"
+                ],
+                [
+                    "xpath///*[@id=\"usernameTextField\"]"
+                ],
+                [
+                    "pierce/#usernameTextField"
+                ],
+                [
+                    "aria/username"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "kenneth2@gmail.com",
+            "selectors": [
+                [
+                    "#emailTextField"
+                ],
+                [
+                    "xpath///*[@id=\"emailTextField\"]"
+                ],
+                [
+                    "pierce/#emailTextField"
+                ],
+                [
+                    "aria/Email"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "12345678",
+            "selectors": [
+                [
+                    "#passwordTextField"
+                ],
+                [
+                    "xpath///*[@id=\"passwordTextField\"]"
+                ],
+                [
+                    "pierce/#passwordTextField"
+                ],
+                [
+                    "aria/Password"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "12345678",
+            "selectors": [
+                [
+                    "#confirmPasswordTextField"
+                ],
+                [
+                    "xpath///*[@id=\"confirmPasswordTextField\"]"
+                ],
+                [
+                    "pierce/#confirmPasswordTextField"
+                ],
+                [
+                    "aria/Confirm Password"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div/div/div/form/button"
+                ],
+                [
+                    "pierce/button"
+                ],
+                [
+                    "aria/Submit"
+                ],
+                [
+                    "text/Submit"
+                ]
+            ],
+            "offsetY": 15,
+            "offsetX": 79
+        }
+    ]
+}

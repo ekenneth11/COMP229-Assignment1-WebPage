@@ -1,0 +1,245 @@
+{
+    "title": "Add Project",
+    "selectorAttribute": "data-add",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1512,
+            "height": 1277,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:5173/projects",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:5173/projects",
+                    "title": "Kenneth Bautista"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#root > div.d-flex i"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div[1]/button/i"
+                ],
+                [
+                    "pierce/#root > div.d-flex i"
+                ],
+                [
+                    "aria/",
+                    "aria/[role=\"generic\"]"
+                ]
+            ],
+            "offsetY": 23,
+            "offsetX": 14.0625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#titleTextField"
+                ],
+                [
+                    "xpath///*[@id=\"titleTextField\"]"
+                ],
+                [
+                    "pierce/#titleTextField"
+                ],
+                [
+                    "aria/Title"
+                ]
+            ],
+            "offsetY": 31.5,
+            "offsetX": 133
+        },
+        {
+            "type": "change",
+            "value": "T",
+            "selectors": [
+                [
+                    "#titleTextField"
+                ],
+                [
+                    "xpath///*[@id=\"titleTextField\"]"
+                ],
+                [
+                    "pierce/#titleTextField"
+                ],
+                [
+                    "aria/Title"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyUp",
+            "key": "t",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Title 1",
+            "selectors": [
+                [
+                    "#titleTextField"
+                ],
+                [
+                    "xpath///*[@id=\"titleTextField\"]"
+                ],
+                [
+                    "pierce/#titleTextField"
+                ],
+                [
+                    "aria/Title"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "D",
+            "selectors": [
+                [
+                    "#descriptionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"descriptionTextField\"]"
+                ],
+                [
+                    "pierce/#descriptionTextField"
+                ],
+                [
+                    "aria/Description"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyUp",
+            "key": "d",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Description 1",
+            "selectors": [
+                [
+                    "#descriptionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"descriptionTextField\"]"
+                ],
+                [
+                    "pierce/#descriptionTextField"
+                ],
+                [
+                    "aria/Description"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#completionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"completionTextField\"]"
+                ],
+                [
+                    "pierce/#completionTextField"
+                ],
+                [
+                    "aria/Completion Date"
+                ]
+            ],
+            "offsetY": 45.5,
+            "offsetX": 365
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#completionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"completionTextField\"]"
+                ],
+                [
+                    "pierce/#completionTextField"
+                ],
+                [
+                    "aria/Completion Date"
+                ]
+            ],
+            "offsetY": 45.5,
+            "offsetX": 355
+        },
+        {
+            "type": "change",
+            "value": "2026-04-24",
+            "selectors": [
+                [
+                    "#completionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"completionTextField\"]"
+                ],
+                [
+                    "pierce/#completionTextField"
+                ],
+                [
+                    "aria/Completion Date"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.btn-primary"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div[1]/div/div/div/div[3]/button[2]"
+                ],
+                [
+                    "pierce/button.btn-primary"
+                ],
+                [
+                    "aria/Save"
+                ],
+                [
+                    "text/Save"
+                ]
+            ],
+            "offsetY": 14.5,
+            "offsetX": 57.46875
+        }
+    ]
+}

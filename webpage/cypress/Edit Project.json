@@ -1,0 +1,213 @@
+{
+    "title": "Edit Project",
+    "selectorAttribute": "data-edit",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1512,
+            "height": 1277,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:5173/projects",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:5173/projects",
+                    "title": "Kenneth Bautista"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div:nth-of-type(4) button.btn-secondary"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div[2]/div/div[4]/div/div/div/button[1]"
+                ],
+                [
+                    "pierce/div:nth-of-type(4) button.btn-secondary"
+                ]
+            ],
+            "offsetY": 23.54998779296875,
+            "offsetX": 33.27001953125
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#titleTextField"
+                ],
+                [
+                    "xpath///*[@id=\"titleTextField\"]"
+                ],
+                [
+                    "pierce/#titleTextField"
+                ],
+                [
+                    "aria/Title"
+                ]
+            ],
+            "offsetY": 36.5,
+            "offsetX": 123
+        },
+        {
+            "type": "change",
+            "value": "Title 2 N",
+            "selectors": [
+                [
+                    "#titleTextField"
+                ],
+                [
+                    "xpath///*[@id=\"titleTextField\"]"
+                ],
+                [
+                    "pierce/#titleTextField"
+                ],
+                [
+                    "aria/Title"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyUp",
+            "key": "n",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Title 2 New",
+            "selectors": [
+                [
+                    "#titleTextField"
+                ],
+                [
+                    "xpath///*[@id=\"titleTextField\"]"
+                ],
+                [
+                    "pierce/#titleTextField"
+                ],
+                [
+                    "aria/Title"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#descriptionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"descriptionTextField\"]"
+                ],
+                [
+                    "pierce/#descriptionTextField"
+                ],
+                [
+                    "aria/Description"
+                ]
+            ],
+            "offsetY": 38.5,
+            "offsetX": 187
+        },
+        {
+            "type": "change",
+            "value": "Description 2 New",
+            "selectors": [
+                [
+                    "#descriptionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"descriptionTextField\"]"
+                ],
+                [
+                    "pierce/#descriptionTextField"
+                ],
+                [
+                    "aria/Description"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#completionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"completionTextField\"]"
+                ],
+                [
+                    "pierce/#completionTextField"
+                ],
+                [
+                    "aria/Completion Date"
+                ],
+                [
+                    "text/2026-04-24"
+                ]
+            ],
+            "offsetY": 35.5,
+            "offsetX": 342
+        },
+        {
+            "type": "change",
+            "value": "2026-04-25",
+            "selectors": [
+                [
+                    "#completionTextField"
+                ],
+                [
+                    "xpath///*[@id=\"completionTextField\"]"
+                ],
+                [
+                    "pierce/#completionTextField"
+                ],
+                [
+                    "aria/Completion Date"
+                ],
+                [
+                    "text/2026-04-24"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button.btn-primary"
+                ],
+                [
+                    "xpath///*[@id=\"root\"]/div[1]/div/div/div/div[3]/button[2]"
+                ],
+                [
+                    "pierce/button.btn-primary"
+                ],
+                [
+                    "aria/Save"
+                ],
+                [
+                    "text/Save"
+                ]
+            ],
+            "offsetY": 13.5,
+            "offsetX": 51.46875
+        }
+    ]
+}
