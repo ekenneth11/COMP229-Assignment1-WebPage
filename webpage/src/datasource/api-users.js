@@ -1,16 +1,23 @@
 let apiURL = import.meta.env.VITE_APP_APIURL;
 let endpoint = "/api/users/";
 
+const getAuthHeaders = () => {
+    const token = sessionStorage.getItem('token');
+
+    return {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+    };
+};
+
 
 //listing all the document from the database
 const list = async() => {
     try{
         let response = await fetch(apiURL + endpoint, {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
+            headers: getAuthHeaders()
         });
         return await response.json();
     }catch(error){
@@ -24,10 +31,7 @@ const create = async (item) => {
     try{
         let response = await fetch(apiURL+ endpoint,{
             method: 'POST',
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: getAuthHeaders(),
             body: JSON.stringify(item)
         });
         return await response.json();
@@ -42,10 +46,7 @@ const update = async (item, id) =>{
     try{
         let response = await fetch(apiURL + endpoint + id, {
             method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: getAuthHeaders(),
             body: JSON.stringify(item)
         });
         return await response.json();
@@ -60,10 +61,7 @@ const remove = async (id) => {
     try{
         let response = await fetch(apiURL + endpoint + id, {
             method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
+            headers: getAuthHeaders()
         });
         return await response.json();
     }catch(error){
@@ -77,10 +75,7 @@ const getOne = async (item, id) => {
     try{
         let response = await fetch(apiURL + endpoint + id, {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
+            headers: getAuthHeaders()
         });
         return await response.json();
     }catch(error){
@@ -90,7 +85,7 @@ const getOne = async (item, id) => {
 }
 const signin = async (user) => {
     try {
-        let response = await fetch(apiURL + '/auth/signin/', {
+        let response = await fetch(apiURL + '/api/auth/signin', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

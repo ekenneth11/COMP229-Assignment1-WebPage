@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { list } from "../../datasource/api-users";
+import { getUsername, getUserEmail } from "../auth/auth-helper";
 import CreateUser from "./CreateUser";
 import UserCards from "./UserCards";
 
@@ -8,6 +9,8 @@ function Users(){
     const [showModal, setShowModal] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const [userList, setUserList] = useState([]);
+    const currentUsername = getUsername();
+    const currentUserEmail = getUserEmail();
     // const [isLoading, setIsLoading] = useState(true);
 
     const loadUsers = () =>{
@@ -53,7 +56,13 @@ function Users(){
                 <div className="row g-2 justify-content-center">
                     {userList.map((user) => (
                         <div className="col-12 col-md-4 d-flex justify-content-center" key={user.id}>
-                            <UserCards user={user} onRemove={handleRemove} onEdit={handleEdit} />
+                            <UserCards
+                                user={user}
+                                currentUsername={currentUsername}
+                                currentUserEmail={currentUserEmail}
+                                onRemove={handleRemove}
+                                onEdit={handleEdit}
+                            />
                         </div>
                     ))}
                 </div>

@@ -1,8 +1,31 @@
 
 import { remove } from "../../datasource/api-references";
 
-function ReferenceCards({ reference, onRemove, onEdit }) {
+function ReferenceCards({ reference, currentUsername, currentUserEmail, onRemove, onEdit }) {
+    const owner = reference?.owner;
+    const ownerEmail = owner?.email || "";
+    const ownerUsername = owner?.username || "";
+
+    const emailMatch = Boolean(
+        ownerEmail &&
+        currentUserEmail &&
+        String(ownerEmail).trim().toLowerCase() === String(currentUserEmail).trim().toLowerCase()
+    );
+
+    const usernameMatch = Boolean(
+        ownerUsername &&
+        currentUsername &&
+        String(ownerUsername).trim() === String(currentUsername).trim()
+    );
+
+    const isOwner = emailMatch || usernameMatch;
+    const actionDisabled = !isOwner;
+
     const handleRemove = (id) => {
+        if (actionDisabled) {
+            return;
+        }
+
         if (window.confirm("Are you sure you want to delete this reference?")) {
             remove(id)
                 .then((res) => {
@@ -39,11 +62,15 @@ function ReferenceCards({ reference, onRemove, onEdit }) {
                 <div className="references-actions mt-auto d-flex justify-content-between align-items-center">
                     <button
                         className="btn btn-secondary me-3"
-                        onClick={() => onEdit && onEdit(reference)}>
+                        disabled={actionDisabled}
+                        title={actionDisabled ? "Only the user who added this reference can edit it." : "Edit reference"}
+                        onClick={() => !actionDisabled && onEdit && onEdit(reference)}>
                         Edit
                     </button>
                     <button
                         className="btn btn-danger"
+                        disabled={actionDisabled}
+                        title={actionDisabled ? "Only the user who added this reference can delete it." : "Delete reference"}
                         onClick={() => handleRemove(reference.id || reference._id)}>
                         Delete
                     </button>

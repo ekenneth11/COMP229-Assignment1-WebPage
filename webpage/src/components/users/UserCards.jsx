@@ -2,8 +2,30 @@
 import { remove } from "../../datasource/api-users";
 import "../../cssFiles/users-cards.css";
 
-function UserCards({ user, onRemove, onEdit }) {
+function UserCards({ user, currentUsername, currentUserEmail, onRemove, onEdit }) {
+    const cardUserEmail = user?.email || "";
+    const cardUsername = user?.username || "";
+
+    const emailMatch = Boolean(
+        cardUserEmail &&
+        currentUserEmail &&
+        String(cardUserEmail).trim().toLowerCase() === String(currentUserEmail).trim().toLowerCase()
+    );
+
+    const usernameMatch = Boolean(
+        cardUsername &&
+        currentUsername &&
+        String(cardUsername).trim() === String(currentUsername).trim()
+    );
+
+    const isOwner = emailMatch || usernameMatch;
+    const actionDisabled = !isOwner;
+
     const handleRemove = (id) => {
+        if (actionDisabled) {
+            return;
+        }
+
         if (window.confirm("Are you sure you want to delete this user?")) {
             remove(id)
                 .then((res) => {
@@ -33,11 +55,15 @@ function UserCards({ user, onRemove, onEdit }) {
                 <div className="users-actions mt-auto d-flex justify-content-between align-items-center">
                     <button
                         className="btn btn-secondary me-3"
-                        onClick={() => onEdit && onEdit(user)}>
+                        disabled={actionDisabled}
+                        title={actionDisabled ? "You can only edit your own user record." : "Edit user"}
+                        onClick={() => !actionDisabled && onEdit && onEdit(user)}>
                         Edit
                     </button>
                     <button
                         className="btn btn-danger"
+                        disabled={actionDisabled}
+                        title={actionDisabled ? "You can only delete your own user record." : "Delete user"}
                         onClick={() => handleRemove(user.id)}>
                         Delete
                     </button>

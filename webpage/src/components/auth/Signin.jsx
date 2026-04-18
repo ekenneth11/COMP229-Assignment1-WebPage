@@ -1,9 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react"
 import { signin } from "../../datasource/api-users";
-import { authenticate } from "./auth-helper";
-import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { authenticate, setUserEmail } from "./auth-helper";
 
 function Signin() {
 
@@ -25,17 +23,20 @@ function Signin() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        signInWithEmailAndPassword(auth, user.email, user.password)
-            .then((userCredential) => {
-                const userFB = userCredential.user;
-
-                authenticate(userFB.accessToken, () => {
-                    navigate(from, { replace: true });
-                });
+        signin(user)
+            .then((res) => {
+                if (res && res.success && res.token) {
+                    setUserEmail(user.email);
+                    authenticate(res.token, () => {
+                        navigate(from, { replace: true });
+                    });
+                } else {
+                    setErrorMsg((res && res.message) ? res.message : "Signin failed");
+                }
             })
-            .catch(err => {
-                setErrorMsg(err.message);
-                console.log(err)
+            .catch((err) => {
+                setErrorMsg(err.message || "Signin failed");
+                console.log(err);
             });
     };
 

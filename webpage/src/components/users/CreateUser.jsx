@@ -16,6 +16,8 @@ function CreateUser({show, onHide, onSaved, user: incomingUser}){
         // when incoming project changes (edit or add), set local state
         if (incomingUser) {
             setUser({ ...incomingUser });
+        } else {
+            setUser(new UserModel());
         }
     }, [incomingUser, show]);
 
@@ -23,7 +25,13 @@ function CreateUser({show, onHide, onSaved, user: incomingUser}){
         event.preventDefault();
         console.log("Submitting:" + user);
         // prepare payload with timestamps
-        const payload = { ...user };
+        const payload = {
+            ...user,
+            firstName: typeof user.firstName === 'string' ? user.firstName : '',
+            lastName: typeof user.lastName === 'string' ? user.lastName : '',
+            email: typeof user.email === 'string' ? user.email : '',
+            password: typeof user.password === 'string' ? user.password : ''
+        };
         const nowIso = new Date().toISOString();
         if (payload.id) {
             // existing user -> set updated timestamp

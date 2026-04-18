@@ -24,6 +24,7 @@
 import CreateReference from "./CreateReference";
 import { useState, useEffect } from "react";
 import { list } from "../../datasource/api-references";
+import { getUsername, getUserEmail } from "../auth/auth-helper";
 import ReferenceCards from "./ReferenceCards";
 import "../../cssFiles/references.css";
 
@@ -31,6 +32,8 @@ function References(){
     const [showModal, setShowModal] = useState(false);
     const [selectedReference, setSelectedReference] = useState(null);
     const [referenceList, setReferenceList] = useState([]);
+    const currentUsername = getUsername();
+    const currentUserEmail = getUserEmail();
     // const [isLoading, setIsLoading] = useState(true);
 
     // Fetch references from the API when the component mounts
@@ -78,7 +81,13 @@ function References(){
                     <div className="row g-2 justify-content-center">
                         {referenceList.map((reference, index) => (
                             <div className="col-12 col-md-4 d-flex justify-content-center" key={reference.id || reference._id || reference.email || index}>
-                                <ReferenceCards reference={reference} onRemove={handleRemove} onEdit={handleEdit} />
+                                <ReferenceCards
+                                    reference={reference}
+                                    currentUsername={currentUsername}
+                                    currentUserEmail={currentUserEmail}
+                                    onRemove={handleRemove}
+                                    onEdit={handleEdit}
+                                />
                             </div>
                             
                         ))}

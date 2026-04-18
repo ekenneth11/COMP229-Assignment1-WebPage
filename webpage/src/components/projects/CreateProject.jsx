@@ -2,7 +2,7 @@ import ProjectModel from "../../datasource/projectModel";
 import ProjectForm from "./ProjectForm";
 import { useState, useEffect } from "react";
 import { create, update } from "../../datasource/api-projects"
-import { getCurrentUserIdentity } from "../auth/auth-helper";
+import { getUsername } from "../auth/auth-helper";
 // import { useNavigate } from "react-router-dom";
 function CreateProject({show, onHide, onSaved, project: incomingProject}){
     // const navigate = useNavigate();
@@ -27,18 +27,25 @@ function CreateProject({show, onHide, onSaved, project: incomingProject}){
         event.preventDefault();
         console.log("Submitting:" + project);
 
-        const currentUser = getCurrentUserIdentity();
-        const payload = project.id
-            ? project
-            : {
+        const currentUsername = getUsername();
+        console.log("[CreateProject] currentUsername:", currentUsername);
+        
+        const isNewProject = !project.id;
+        const payload = isNewProject
+            ? {
                 ...project,
-                createdBy: project.createdBy || currentUser.username || currentUser.email || currentUser.uid || currentUser.userId || ""
-            };
+                owner: currentUsername || ""  // Always set owner to current user for new projects
+            }
+            : project;
 
-        const doCreateOrUpdate = project.id ? update(payload, project.id) : create(payload);
+        console.log("[CreateProject] isNewProject:", isNewProject, "payload.owner:", payload.owner);
+
+        const doCreateOrUpdate = isNewProject ? create(payload) : update(payload, project.id);
         doCreateOrUpdate
             .then((res) =>{
+                console.log("[CreateProject] API Response:", res);
                 if(res && res.success) {
+                    console.log("[CreateProject] Created project data:", res.data);
                     alert(res.message + (res.data && res.data.id ? " - id: " + res.data.id : ""));
                     setProject(new ProjectModel());
                     if (onSaved) onSaved();

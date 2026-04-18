@@ -22,23 +22,29 @@
 //     }
 // ]
 import CreateProject from "./CreateProject";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { list } from "../../datasource/api-projects";
-import { getCurrentUserIdentity } from "../auth/auth-helper";
+import { getUsername, getUserEmail } from "../auth/auth-helper";
 import ProjectCards from "./ProjectCards";
 
 function Projects(){
     const [showModal, setShowModal] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
     const [projectList, setProjectList] = useState([]);
-    const currentUser = useMemo(() => getCurrentUserIdentity(), []);
+    const currentUsername = getUsername();
+    const currentUserEmail = getUserEmail();
     // const [isLoading, setIsLoading] = useState(true);
 
     // Fetch projects from the API when the component mounts
     const loadProjects = () => {
         list()
             .then((res) => {
+                console.log("[Projects] List API Response:", res);
                 if (res && res.success) {
+                    console.log("[Projects] Projects data:", res.data);
+                    if (res.data && res.data.length > 0) {
+                        console.log("[Projects] First project:", res.data[0]);
+                    }
                     setProjectList(res.data);
                     // setIsLoading(false);
                 }
@@ -81,7 +87,8 @@ function Projects(){
                             <div className="col-12 col-md-4 d-flex justify-content-center" key={project.id}>
                                 <ProjectCards
                                     project={project}
-                                    currentUser={currentUser}
+                                    currentUsername={currentUsername}
+                                    currentUserEmail={currentUserEmail}
                                     onRemove={handleRemove}
                                     onEdit={handleEdit}
                                 />

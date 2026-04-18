@@ -2,32 +2,38 @@
 import { remove } from "../../datasource/api-projects";
 import "../../cssFiles/projects-cards.css";
 
-function ProjectCards({ project, currentUser, onRemove, onEdit }) {
-    const ownerKeyCandidates = [
-        "createdBy",
-        "createdByUsername",
-        "creator",
-        "author",
-        "owner",
-        "ownerUsername",
-        "username",
-        "userName",
-        "addedBy",
-        "userId",
-        "ownerId",
-        "createdById",
-        "uid",
-        "email"
-    ];
+function ProjectCards({ project, currentUsername, currentUserEmail, onRemove, onEdit }) {
+    // Owner check: compare email-to-email first, then fallback to username
+    const projectOwner = project?.owner;
+    const projectOwnerEmail = projectOwner?.email || "";
+    const projectOwnerUsername = projectOwner?.username || "";
+    
+    // Debug logging
+    console.log(`[ProjectCard Debug] Project: ${project?.title}`);
+    console.log(`  - Full project object:`, project);
+    console.log(`  - projectOwner object:`, projectOwner);
+    console.log(`  - projectOwnerEmail: ${projectOwnerEmail} (type: ${typeof projectOwnerEmail})`);
+    console.log(`  - projectOwnerUsername: ${projectOwnerUsername}`);
+    console.log(`  - currentUserEmail: ${currentUserEmail}`);
+    console.log(`  - currentUsername: ${currentUsername}`);
 
-    const projectOwner = ownerKeyCandidates
-        .map((key) => project?.[key])
-        .find((value) => value !== undefined && value !== null && String(value).trim() !== "");
-
-    const isOwner = Boolean(
-        projectOwner &&
-        currentUser?.ownerCandidates?.includes(String(projectOwner).toLowerCase())
+    const emailMatch = Boolean(
+        projectOwnerEmail &&
+        currentUserEmail &&
+        String(projectOwnerEmail).trim().toLowerCase() === String(currentUserEmail).trim().toLowerCase()
     );
+
+    const usernameMatch = Boolean(
+        projectOwnerUsername &&
+        currentUsername &&
+        String(projectOwnerUsername).trim() === String(currentUsername).trim()
+    );
+    
+    const isOwner = emailMatch || usernameMatch;
+
+    console.log(`  - emailMatch: ${emailMatch}`);
+    console.log(`  - usernameMatch: ${usernameMatch}`);
+    console.log(`  - isOwner: ${isOwner}`);
 
     const actionDisabled = !isOwner;
 

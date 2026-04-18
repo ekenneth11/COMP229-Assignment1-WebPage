@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { list } from "../../datasource/api-services";
+import { getUsername, getUserEmail } from "../auth/auth-helper";
 import CreateService from "./CreateService";
 import ServiceCards from "./ServiceCards";
 
@@ -7,6 +8,8 @@ function Services() {
     const [showModal, setShowModal] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
     const [serviceList, setServiceList] = useState([]);
+    const currentUsername = getUsername();
+    const currentUserEmail = getUserEmail();
 
     const loadServices = () => {
         list()
@@ -59,7 +62,13 @@ function Services() {
                 <div className="row g-2 justify-content-center">
                     {serviceList.map((service) => (
                         <div className="col-12 col-md-4 d-flex justify-content-center" key={service.id}>
-                            <ServiceCards service={service} onRemove={handleRemove} onEdit={handleEdit} />
+                            <ServiceCards
+                                service={service}
+                                currentUsername={currentUsername}
+                                currentUserEmail={currentUserEmail}
+                                onRemove={handleRemove}
+                                onEdit={handleEdit}
+                            />
                         </div>
                     ))}
                 </div>

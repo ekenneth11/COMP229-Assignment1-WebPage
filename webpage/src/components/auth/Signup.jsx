@@ -2,8 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react"
 import { create } from "../../datasource/api-users";
 import UserModel from "../../datasource/userModel";
-import { auth } from "../../firebase";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Signup = () => {
 
@@ -23,29 +21,18 @@ const Signup = () => {
             setErrorMsg("ERROR: Passwords don't match!");
         } else {
             try {
-                let userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
-                console.log(userCredential);
-                const userFB = userCredential.user;
+                const apiResult = await create(user);
+                if (!apiResult || !apiResult.success) {
+                    setErrorMsg((apiResult && apiResult.message) ? apiResult.message : "Signup failed.");
+                    return;
+                }
 
                 navigate("/users/signin");
                 
             } catch (error) {
-                setErrorMsg(error.message);
+                setErrorMsg(error.message || "Signup failed.");
                 console.log(error)
             }
-
-            // create(user).then(res => {
-            //     if (res && res.success) {
-            //         alert(res.message);
-            //         navigate("/users/signin");
-            //     }
-            //     else {
-            //         setErrorMsg(res.message);
-            //     }
-            // }).catch(err => {
-            //     setErrorMsg(err.message);
-            //     console.log(err)
-            // });
         }
     };
 
